@@ -1,0 +1,30 @@
+// Global Reset
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: $ff-poppins;
+}
+
+.container {
+  max-width: 144rem;
+  margin: 0 auto;
+  height: 100vh;
+  background-color: $color--off_white;
+
+  @include flexCenter;
+}
+
+.attribution {
+  text-align: center;
+  margin-top: 2rem;
+}
