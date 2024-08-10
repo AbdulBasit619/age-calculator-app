@@ -36,14 +36,6 @@
       align-items: flex-start;
       gap: 1rem;
 
-      .label__input {
-        text-transform: uppercase;
-        font-weight: $fw--bold;
-        letter-spacing: 2px;
-        color: $color--smokey_grey;
-        font-size: 1.2rem;
-      }
-
       .input {
         outline: none;
         background: none;
@@ -72,11 +64,6 @@
           color: $color--smokey_grey;
           font-style: $fst-normal;
         }
-      }
-
-      .message__error {
-        font-style: $fst-italic;
-        color: $color--light_red;
       }
     }
   }
@@ -111,28 +98,6 @@
 
       &:active {
         background-color: $color--off_black;
-      }
-    }
-  }
-
-  .result {
-    @include flexCenter;
-    align-items: flex-start;
-
-    .text {
-      font-size: 8.4rem;
-      font-weight: $fw--bolder;
-      font-style: $fst-italic;
-      line-height: 1.1;
-      color: $color--off_black;
-
-      @media only screen and (max-width: 600px) {
-        font-size: 6.4rem;
-      }
-
-      .output {
-        color: $color--purple;
-        margin-right: 1rem;
       }
     }
   }
