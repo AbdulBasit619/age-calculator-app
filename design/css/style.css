@@ -10,6 +10,21 @@
 html {
   font-size: 62.5%;
 }
+@media only screen and (max-width: 800px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  html {
+    font-size: 50%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 43.75%;
+  }
+}
 
 body {
   font-family: "Poppins", sans-serif;
@@ -24,6 +39,18 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+@media only screen and (max-width: 600px) {
+  .container {
+    height: fit-content;
+    padding: 20rem 0;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
 
 .attribution {
@@ -63,6 +90,17 @@ input[type=number] {
   flex-direction: column;
   align-items: flex-start;
 }
+@media only screen and (max-width: 600px) {
+  .card {
+    gap: 4.8rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .card {
+    padding: 6.4rem 3rem;
+    gap: 4rem;
+  }
+}
 .card .inputs {
   margin-right: 14rem;
   display: flex;
@@ -71,6 +109,16 @@ input[type=number] {
   flex-direction: column;
   flex-direction: row;
   gap: 3rem;
+}
+@media only screen and (max-width: 500px) {
+  .card .inputs {
+    gap: 1rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .card .inputs {
+    margin-right: 0;
+  }
 }
 .card .inputs .input__container {
   display: flex;
@@ -100,6 +148,11 @@ input[type=number] {
   font-weight: 700;
   caret-color: hsl(259, 100%, 65%);
   transition: all 0.3s;
+}
+@media only screen and (max-width: 500px) {
+  .card .inputs .input__container .input {
+    max-width: 12rem;
+  }
 }
 .card .inputs .input__container .input:active, .card .inputs .input__container .input:focus {
   border-color: hsl(259, 100%, 65%);
@@ -136,6 +189,11 @@ input[type=number] {
   z-index: 2;
   cursor: pointer;
 }
+@media only screen and (max-width: 600px) {
+  .card .container__divider .icon__divider {
+    margin: 0 auto;
+  }
+}
 .card .container__divider .icon__divider:active {
   background-color: hsl(0, 0%, 8%);
 }
@@ -153,9 +211,14 @@ input[type=number] {
   line-height: 1.1;
   color: hsl(0, 0%, 8%);
 }
+@media only screen and (max-width: 600px) {
+  .card .result .text {
+    font-size: 6.4rem;
+  }
+}
 .card .result .text .output {
   color: hsl(259, 100%, 65%);
-  letter-spacing: 16px;
+  margin-right: 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */

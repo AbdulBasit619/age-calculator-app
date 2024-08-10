@@ -7,12 +7,29 @@
   @include flexCenter;
   align-items: flex-start;
 
+  @media only screen and (max-width: 600px) {
+    gap: 4.8rem;
+  }
+
+  @media only screen and (max-width: 500px) {
+    padding: 6.4rem 3rem;
+    gap: 4rem;
+  }
+
   .inputs {
     margin-right: 14rem;
 
     @include flexCenter;
     flex-direction: row;
     gap: 3rem;
+
+    @media only screen and (max-width: 500px) {
+      gap: 1rem;
+    }
+
+    @media only screen and (max-width: 600px) {
+      margin-right: 0;
+    }
 
     .input__container {
       @include flexCenter;
@@ -40,6 +57,10 @@
         font-weight: $fw--bold;
         caret-color: $color--purple;
         transition: all 0.3s;
+
+        @media only screen and (max-width: 500px) {
+          max-width: 12rem;
+        }
 
         &:active,
         &:focus {
@@ -82,8 +103,11 @@
       z-index: 111111;
       transition: all 0.3s;
       z-index: 2;
-
       cursor: pointer;
+
+      @media only screen and (max-width: 600px) {
+        margin: 0 auto;
+      }
 
       &:active {
         background-color: $color--off_black;
@@ -102,9 +126,13 @@
       line-height: 1.1;
       color: $color--off_black;
 
+      @media only screen and (max-width: 600px) {
+        font-size: 6.4rem;
+      }
+
       .output {
         color: $color--purple;
-        letter-spacing: 16px;
+        margin-right: 1rem;
       }
     }
   }

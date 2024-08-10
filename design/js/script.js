@@ -250,6 +250,7 @@ function calculateAge(e) {
 }
 
 btnInitiator.addEventListener('click', e => calculateAge(e));
+btnInitiator.addEventListener('touchstart', e => calculateAge(e)); // For listening to finger touch even on the button on touch device
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Enter') {
     calculateAge(e);
