@@ -105,6 +105,25 @@ function calculateAge(e) {
 
     labelYear.style.color = 'hsl(0, 100%, 67%)';
     inputYear.style.borderColor = 'hsl(0, 100%, 67%)';
+  }
+
+  if (!valueDay || !valueMonth || !valueYear) {
+    messageErrorDayEmpty.classList.add('hidden');
+    messageErrorDayInvalid.classList.add('hidden');
+    messageErrorMonthEmpty.classList.add('hidden');
+    messageErrorMonthInvalid.classList.add('hidden');
+    messageErrorYearEmpty.classList.add('hidden');
+    messageErrorYearInvalid.classList.add('hidden');
+    messageErrorDateDayInvalid.classList.remove('hidden');
+    messageErrorDateMonthInvalid.classList.remove('hidden');
+    messageErrorDateYearInvalid.classList.remove('hidden');
+
+    labelDay.style.color = 'hsl(0, 100%, 67%)';
+    inputDay.style.borderColor = 'hsl(0, 100%, 67%)';
+    labelMonth.style.color = 'hsl(0, 100%, 67%)';
+    inputMonth.style.borderColor = 'hsl(0, 100%, 67%)';
+    labelYear.style.color = 'hsl(0, 100%, 67%)';
+    inputYear.style.borderColor = 'hsl(0, 100%, 67%)';
     return;
   }
 
