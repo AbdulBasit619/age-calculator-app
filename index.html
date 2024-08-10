@@ -23,8 +23,11 @@
           <div class="input__container">
             <label for="day" class="label__input label__input--day">Day</label>
             <input
-              type="text"
-              pattern=""
+              type="number"
+              min="0"
+              step="1"
+              inputmode="numeric"
+              pattern="\d*"
               class="input input__day"
               placeholder="DD"
             />
@@ -49,8 +52,11 @@
               >Month</label
             >
             <input
-              type="text"
-              pattern=""
+              type="number"
+              min="0"
+              step="1"
+              inputmode="numeric"
+              pattern="\d*"
               class="input input__month"
               placeholder="MM"
             />
@@ -75,8 +81,11 @@
               >Year</label
             >
             <input
-              type="text"
-              pattern=""
+              type="number"
+              min="0"
+              step="1"
+              inputmode="numeric"
+              pattern="\d*"
               class="input input__year"
               placeholder="YYYY"
             />
