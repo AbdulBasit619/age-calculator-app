@@ -2,21 +2,22 @@
   display: none !important;
 }
 
-// // GET RID OF ARROWS INSIDE INPUT BOX
+// GETTING RID OF INCREMENT AND DECREMENT ARROWS INSIDE INPUT FIELDS
 
-/* Hide spinner arrows in WebKit-based browsers (Chrome, Safari) */
+// Hide arrows in WebKit-based browsers (Chrome, Safari)
+
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
-  -webkit-appearance: none;
+  appearance: none;
   margin: 0;
 }
 
-/* Hide spinner arrows in Firefox */
+// Hide arrows in Firefox
 input[type='number'] {
   -moz-appearance: textfield;
 }
 
-/* Hide spinner arrows in Edge and IE */
+// Hide arrows in MS Edge and IE
 input[type='number'] {
   appearance: textfield;
 }

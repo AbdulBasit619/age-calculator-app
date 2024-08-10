@@ -1,4 +1,7 @@
-// Global Reset
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Global Rest
 *,
 *::before,
 *::after {
@@ -31,6 +34,7 @@ body {
   max-width: 144rem;
   margin: 0 auto;
   height: 100vh;
+
   background-color: $color--off_white;
 
   @include flexCenter;
@@ -40,7 +44,7 @@ body {
     padding: 20rem 0;
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 500px) {
     padding-left: 3rem;
     padding-right: 3rem;
   }

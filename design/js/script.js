@@ -1,8 +1,8 @@
-// Activating strict mode
+////// Activating Strict Mode
 'use strict';
 
-//////////////////////////
-////// SELECTING ELEMENTS
+////////////////////////////////
+///// SELECTING ELEMENTS
 
 const inputDay = document.querySelector('.input__day');
 const inputMonth = document.querySelector('.input__month');
@@ -48,20 +48,23 @@ const outputYears = document.querySelector('.output__years');
 const outputMonths = document.querySelector('.output__months');
 const outputDays = document.querySelector('.output__days');
 
-//////////////////////////
-////// IMPLEMENTING FUNCTIONALITY
+////////////////////////////////
+///// IMPlEMENTING FUNCTIONALITY
 
 /*
-A year is a leap year if:
-- It’s divisible by 4.
-- But if it’s divisible by 100, it’s not a leap year unless it’s also divisible by 400.
+
+A leap year is a year if:
+- It's divisible by 4.
+- But if it's divisible by 100, it's  not a leap year unless it's also divisible by 400.
+
 */
+
 const isLeapYear = year =>
-  (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+  (year % 4 === 0 && year % 100 !== 0) || year % 4 === 0;
 
 const currentTime = new Date();
 const currentDay = currentTime.getDate();
-const currentMonth = currentTime.getMonth() + 1;
+const currentMonth = currentTime.getMonth() + 1; // As it is 0 based, so the first month is actually at number 0
 const currentYear = currentTime.getFullYear();
 
 let longMonths = [1, 3, 5, 7, 8, 10, 12];
@@ -72,51 +75,67 @@ const firstMonth = 1;
 
 const lastDayInLongMonths = 31;
 const lastDayInShortMonths = 30;
+
 const firstDayOfMonth = 1;
+
 const lastDayInLeapFeb = 29;
 const lastDayInNonLeapFeb = 28;
 
+// Defining the function
 function calculateAge(e) {
   e.preventDefault();
 
-  const valueDay = Number(inputDay.value);
+  const valueDay = Number(inputDay.value); // Converting to number because values from inputs are always string value, not number values
   const valueMonth = Number(inputMonth.value);
   const valueYear = Number(inputYear.value);
 
+  //// Checking for Errors
+
+  // Checking for empty inputs
+
   if (!valueDay) {
+    messageErrorDayEmpty.classList.add('hidden');
     messageErrorDayInvalid.classList.add('hidden');
-    messageErrorDayEmpty.classList.remove('hidden');
+
+    messageErrorDateDayInvalid.classList.add('hidden');
+    messageErrorDateMonthInvalid.classList.add('hidden');
+    messageErrorDateYearInvalid.classList.add('hidden');
 
     labelDay.style.color = 'hsl(0, 100%, 67%)';
     inputDay.style.borderColor = 'hsl(0, 100%, 67%)';
   }
 
   if (!valueMonth) {
+    messageErrorMonthEmpty.classList.add('hidden');
     messageErrorMonthInvalid.classList.add('hidden');
-    messageErrorMonthEmpty.classList.remove('hidden');
+
+    messageErrorDateDayInvalid.classList.add('hidden');
+    messageErrorDateMonthInvalid.classList.add('hidden');
+    messageErrorDateYearInvalid.classList.add('hidden');
 
     labelMonth.style.color = 'hsl(0, 100%, 67%)';
     inputMonth.style.borderColor = 'hsl(0, 100%, 67%)';
   }
 
   if (!valueYear) {
+    messageErrorYearEmpty.classList.add('hidden');
     messageErrorYearInvalid.classList.add('hidden');
-    messageErrorYearEmpty.classList.remove('hidden');
+
+    messageErrorDateDayInvalid.classList.add('hidden');
+    messageErrorDateMonthInvalid.classList.add('hidden');
+    messageErrorDateYearInvalid.classList.add('hidden');
 
     labelYear.style.color = 'hsl(0, 100%, 67%)';
     inputYear.style.borderColor = 'hsl(0, 100%, 67%)';
   }
 
-  if (!valueDay || !valueMonth || !valueYear) {
-    messageErrorDayEmpty.classList.add('hidden');
+  if (!valueDay && !valueMonth && !valueYear) {
     messageErrorDayInvalid.classList.add('hidden');
-    messageErrorMonthEmpty.classList.add('hidden');
+    messageErrorDayEmpty.classList.remove('hidden');
     messageErrorMonthInvalid.classList.add('hidden');
-    messageErrorYearEmpty.classList.add('hidden');
+    messageErrorMonthEmpty.classList.remove('hidden');
     messageErrorYearInvalid.classList.add('hidden');
-    messageErrorDateDayInvalid.classList.remove('hidden');
-    messageErrorDateMonthInvalid.classList.remove('hidden');
-    messageErrorDateYearInvalid.classList.remove('hidden');
+    messageErrorYearEmpty.classList.remove('hidden');
 
     labelDay.style.color = 'hsl(0, 100%, 67%)';
     inputDay.style.borderColor = 'hsl(0, 100%, 67%)';
@@ -127,6 +146,7 @@ function calculateAge(e) {
     return;
   }
 
+  // Checking validity of the input fields
   if (
     valueDay &&
     (valueDay < 1 || valueDay > 31) &&
@@ -181,6 +201,8 @@ function calculateAge(e) {
     return;
   }
 
+  // IF everything is correct, remove the red error colors back to normal and perform the actual age calculation till current date.
+
   messageErrorDayEmpty.classList.add('hidden');
   messageErrorDayInvalid.classList.add('hidden');
   messageErrorMonthEmpty.classList.add('hidden');
@@ -199,7 +221,6 @@ function calculateAge(e) {
   inputYear.style.borderColor = 'hsl(0, 0%, 86%)';
 
   let years;
-
   if (currentMonth > valueMonth) years = currentYear - valueYear;
   if (currentMonth < valueMonth) years = currentYear - valueYear - 1;
   if (currentYear === valueYear) years = 0;
@@ -211,9 +232,9 @@ function calculateAge(e) {
   if (currentMonth > valueMonth) months = currentMonth - valueMonth;
   if (currentMonth < valueMonth) {
     const monthsUntilEndOfThatYear = lastMonth - valueMonth;
-    let monthsFromStartOfCurrentYearTillToday = currentMonth - firstMonth;
-    if (valueDay < currentDay) monthsFromStartOfCurrentYearTillToday++;
-    months = monthsUntilEndOfThatYear + monthsFromStartOfCurrentYearTillToday;
+    let MonthsFromStartOfCurrentYearTillToday = currentMonth - firstMonth;
+    if (valueDay < currentDay) MonthsFromStartOfCurrentYearTillToday++;
+    months = monthsUntilEndOfThatYear + MonthsFromStartOfCurrentYearTillToday;
   }
   if (currentMonth === valueMonth) months = 0;
 
@@ -224,7 +245,6 @@ function calculateAge(e) {
   if (currentDay < valueDay) {
     if (longMonths.includes(currentMonth - 1))
       daysUntilEndOfPrevMonth = lastDayInLongMonths - valueDay;
-
     if (shortMonths.includes(currentMonth - 1))
       if (!shortMonths.includes(2))
         daysUntilEndOfPrevMonth = lastDayInLongMonths - valueDay;
@@ -234,11 +254,15 @@ function calculateAge(e) {
         else if (!isLeapYear(currentYear))
           daysUntilEndOfPrevMonth = lastDayInNonLeapFeb - valueDay;
 
-    // const daysFromStartOfCurrentMonthTillToday = currentDay - firstDayOfMonth; // To exclude the current day
-    const daysFromStartOfCurrentMonthTillToday =
-      currentDay - firstDayOfMonth + 1; // To include the current day
-    days = daysUntilEndOfPrevMonth + daysFromStartOfCurrentMonthTillToday;
+    /*
+  // To include the current date in age calculation
+  const daysFromStartOfMonthTillToday = currentDay - firstDayOfMonth;
+  */
+
+    // To exclude the current date in age calculation
+    const daysFromStartOfMonthTillToday = currentDay - firstDayOfMonth + 1;
   }
+
   if (currentDay === valueDay) days = 0;
 
   console.log(days, months, years);
@@ -248,10 +272,9 @@ function calculateAge(e) {
   outputDays.textContent = days;
 }
 
+// Using the function
 btnInitiator.addEventListener('click', e => calculateAge(e));
-btnInitiator.addEventListener('touchstart', e => calculateAge(e)); // For listening to finger touch even on the button on touch device
+btnInitiator.addEventListener('touchstart', e => calculateAge(e)); // For listening to finger touch on the button even on touch device
 document.addEventListener('keydown', function (e) {
-  if (e.key === 'Enter') {
-    calculateAge(e);
-  }
+  if (e.key === 'Enter') calculateAge(e);
 });

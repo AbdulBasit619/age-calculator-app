@@ -1,3 +1,6 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
 .card {
   background-color: $color--white;
   padding: 4rem;
@@ -19,16 +22,15 @@
   .inputs {
     margin-right: 14rem;
 
-    @include flexCenter;
-    flex-direction: row;
+    @include flexCenter(row);
     gap: 3rem;
-
-    @media only screen and (max-width: 500px) {
-      gap: 1rem;
-    }
 
     @media only screen and (max-width: 600px) {
       margin-right: 0;
+    }
+
+    @media only screen and (max-width: 500px) {
+      gap: 1rem;
     }
 
     .input__container {
@@ -39,8 +41,6 @@
       .input {
         outline: none;
         background: none;
-        border: none;
-        font-size: $fsz-input;
         max-width: 14.4rem;
         padding: 0.6rem 1.6rem;
         border-radius: 6px;
@@ -50,7 +50,7 @@
         caret-color: $color--purple;
         transition: all 0.3s;
 
-        @media only screen and (max-width: 500px) {
+        @media only screen and (max-width: 600px) {
           max-width: 12rem;
         }
 
@@ -62,7 +62,7 @@
         &::placeholder {
           font-family: inherit;
           color: $color--smokey_grey;
-          font-style: $fst-normal;
+          font-size: $fst-normal;
         }
       }
     }
@@ -87,9 +87,8 @@
       padding: 2rem;
       width: 7.4rem;
       height: 7.4rem;
-      z-index: 111111;
-      transition: all 0.3s;
       z-index: 2;
+      transition: all 0.3s;
       cursor: pointer;
 
       @media only screen and (max-width: 600px) {
