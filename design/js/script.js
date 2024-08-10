@@ -228,12 +228,11 @@ function calculateAge(e) {
     if (shortMonths.includes(currentMonth - 1))
       if (!shortMonths.includes(2))
         daysUntilEndOfPrevMonth = lastDayInLongMonths - valueDay;
-      else if (shortMonths.includes(2)) {
+      else if (shortMonths.includes(2))
         if (isLeapYear(currentYear))
           daysUntilEndOfPrevMonth = lastDayInLeapFeb - valueDay;
         else if (!isLeapYear(currentYear))
           daysUntilEndOfPrevMonth = lastDayInNonLeapFeb - valueDay;
-      }
 
     // const daysFromStartOfCurrentMonthTillToday = currentDay - firstDayOfMonth; // To exclude the current day
     const daysFromStartOfCurrentMonthTillToday =
