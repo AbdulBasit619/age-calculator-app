@@ -60,7 +60,7 @@ A leap year is a year if:
 */
 
 const isLeapYear = year =>
-  (year % 4 === 0 && year % 100 !== 0) || year % 4 === 0;
+  (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
 
 const currentTime = new Date();
 const currentDay = currentTime.getDate();
